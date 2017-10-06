@@ -27,3 +27,30 @@ puts "rocky planets: #{rocky_planets}"
 # so use the `pop` operation to remove it from the end of `planet_list`.
 planet_list.pop
 puts "no more Pluto :(  #{planet_list}"
+
+
+# Create another array containing arrays where 
+# each array will hold the name of a spacecraft that we have launched, 
+# and the names of the planet(s) that it has visited, or landed on. (e.g. ['Cassini', 'Saturn']).
+missions = [
+
+    ['my_spaceship', 'Mars', 'Venus', 'Saturn'],
+    ['jisies_spaceship', 'Saturn', 'Jupiter'],
+    ['hannahs_spaceship', 'Mars', 'Jupiter', 'Uranus', 'Mercury'],
+    ['major_toms_spaceship', 'Mercury', 'Venus', 'Earth', 'Mars']
+
+]
+
+
+# Iterate over your array of planets, 
+# and inside that loop, iterate over the array of arrays. 
+# Print, for each planet, which satellites have visited.
+planet_list.each do |planet|
+    missions.each do |mission|
+        mission.each do |detail|
+            if detail == planet
+                puts "#{mission[0]} has visited #{planet}"
+            end
+        end
+    end
+end
