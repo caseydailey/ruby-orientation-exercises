@@ -36,10 +36,10 @@ names_of_tickers = {
 
 
 # produce a report of purchases
+# getting names by lookup in the hash
 #
-#
-#
-#
+# args: array, hash
+# returns: N/A (just puts a string to the terminal)
 #
 
 def print_report(purchase_array, name_hash)
@@ -67,13 +67,13 @@ end
 # 
 #   {
 #   
-#   :GE => [[:GE, 100, "10-sep-2001", 48]], 
-#   :CAT => [[:CAT, 20, "1-apr-1999", 24]], 
-#   :BKHU =>[[:BKHU, 200, "1-apr-1998", 56]], 
-#   :BZH => [[:BZH, 200, "2-jun-1998", 22]], 
-#   :CBPX =>[[:CBPX, 45, "1-jul-1998", 56], [:CBPX, 200, "14-jul-1998", 56]], 
-#   :CORR =>[[:CORR, 200, "23-aug-1998", 44], [:CORR, 50, "1-sep-1998", 85]], 
-#   :BKS =>[[:BKS, 90, "12-nov-1998", 16]]
+#   :GE=>[[100, "10-sep-2001", 48]], 
+#   :CAT=>[[20, "1-apr-1999", 24]], 
+#   :BKHU=>[[200, "1-apr-1998", 56]], 
+#   :BZH=>[[200, "2-jun-1998", 22]], 
+#   :CBPX=>[[45, "1-jul-1998", 56], [200, "14-jul-1998", 56]], 
+#   :CORR=>[[200, "23-aug-1998", 44], [50, "1-sep-1998", 85]], 
+#   :BKS=>[[90, "12-nov-1998", 16]]
 #   
 #   }
 #   
@@ -82,8 +82,11 @@ def store_purchase_history(purchase_array, name_hash)
     # reduce the array's values into a hash
     purchase_array.reduce({}) do |purchase_hash, purchase|
 
-        #storing the namestring via lookup in the name_hash
+        # storing the namestring via lookup in the name_hash
         ticker = purchase[0]
+
+        # remove the ticker from the purchase block
+        purchase.slice!(0)
         
         # if purchase_hash already has a key by this name,
         # push this purchase block (array) to it's value.
@@ -104,18 +107,19 @@ def store_purchase_history(purchase_array, name_hash)
 end
 
  
-puts "******** Investment Data *********"
-puts
-puts store_purchase_history(purchases, names_of_tickers)
-puts
-puts "***********************************"
-puts
 puts "******* Summary of Totals *********"
 puts
 print_report(purchases, names_of_tickers)
 puts
 puts "***********************************"
 puts
+puts "******** Investment Data *********"
+puts
+puts store_purchase_history(purchases, names_of_tickers)
+puts
+puts "***********************************"
+puts
+
 
 
 
