@@ -16,7 +16,7 @@ my_family = {
         }
     ],
 
-    :brothers => [
+    :brother => [
 
         {
             :name => "Doni",
@@ -39,7 +39,7 @@ my_family = {
             :age => 20
         }          
     ],
-    :sisters => [
+    :sister => [
 
         {
             :name => "Bonnie",
@@ -66,7 +66,7 @@ my_family.keys.each do |group_name|
         if person.has_key?(:role)
             puts "#{person[:name]} is my #{person[:role]} and is #{person[:age]} years old."
         else
-            puts "#{person[:name]} is my #{group_name.to_s.slice(0, -1)} and is #{person[:age]} years old"
+            puts "#{person[:name]} is my #{group_name} and is #{person[:age]} years old"
         end
     end
 end
