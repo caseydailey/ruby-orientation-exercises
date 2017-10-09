@@ -31,7 +31,7 @@ class CarLot
         end
         makes_and_models
       end
-        p makes_and_models
+         p makes_and_models
     end
   end
 end
