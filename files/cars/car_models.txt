@@ -1,0 +1,4 @@
+T=Camry,Tercel,Tacoma
+F=Ranger,F-150,Model-T,Excort,Taurus
+C=Camaro
+V=240,740,940
