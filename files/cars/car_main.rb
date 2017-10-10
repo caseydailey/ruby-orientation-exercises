@@ -20,6 +20,13 @@ class CarLot
     @models = read('car_models.txt')
   end
 
+# {
+#   "Toyota"=>["Camry", "Tercel", "Tacoma"], 
+#   "Ford"=>["Ranger", "F-150", "Model-T", "Excort", "Taurus"], 
+#   "Chevy"=>["Camaro"], 
+#   "Volvo"=>["240", "740", "940"]
+# }
+# 
   def build_hash
 
     split_models = @models.map { |model_list| model_list.split('=') } #[["T", "Camry,Tercel,Tacoma"], ["F", "Ranger,F-150,Model-T,Excort,Taurus]]
@@ -31,10 +38,12 @@ class CarLot
         end
         makes_and_models
       end
-         p makes_and_models
+        p makes_and_models
     end
   end
 end
+
+
 
 
 carlot = CarLot.new
